@@ -32,7 +32,9 @@ class Genome:
 
 def build_genomes():
     genomes = []
-    for g in ["hg19", "grch38"]:
+
+    files = [i.replace(".chrom.sizes", "") for i in pkg_resources.resource_listdir('wgba.sizes', '.') if i not in ['__init__.py', '__pycache__']]
+    for g in files:
         genomes.append(Genome(g))
     
     return genomes

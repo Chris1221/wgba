@@ -3,7 +3,7 @@ import pyBigWig
 
 from .genomes import build_genomes
 
-def check_bigwig(path, summary = False, tol = 2, **other):
+def check_bigwig(path, summary = False, tol = 2):
     bw = pyBigWig.open(path)
 
     consistent = {}
@@ -21,9 +21,7 @@ def check_bigwig(path, summary = False, tol = 2, **other):
     
     report(path, consistent, summary = summary, tol = tol)
 
-def check_bed(path, summary = False, tol = 2, **other):
-    # Set up a dict of chroms
-
+def check_bed(path, summary = False, tol = 2):
     consistent = {}
     genomes = build_genomes()
     for g in genomes:
