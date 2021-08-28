@@ -1,9 +1,6 @@
 import pkg_resources
 from shutil import copy
 
-hg19 = pkg_resources.resource_filename('wgba.sizes', 'hg19.chrom.sizes')
-grch38 = pkg_resources.resource_filename('wgba.sizes', 'grch38.chrom.sizes')
-
 class Genome:
     def __init__(self, name):
         self.sizes = {}
