@@ -2,6 +2,13 @@
 
 A species-agnostic tool to figure out the probable genome build of a file. Currently supports bigWig and bed files, and an easy method to add your own genome build.
 
+Install with `pip`
+
+```{sh}
+git clone git@github.com:Chris1221/wgba.git
+pip install -e wgba
+```
+
 ## Usage:
 
 Auto detect file extension
@@ -17,7 +24,7 @@ wgba -f bed your_file.bed
 wgba -f bigwig your_file.bigWig
 ```
 
-You can use shell globs to match multiple files, all of which will be processed independantly
+You can use shell globs to match multiple files, all of which will be processed independently
 
 ```{sh}
 wgba *.bed 
@@ -35,7 +42,7 @@ Summarise non-conforming chromosomes with `-s`, `--summary`
 wgba -s bad_file.bed
 ```
 
-Adjust the tolerance for build assignemnt with `-t`, `--tol`. This is useful if you know that one chromosome will never match.
+Adjust the tolerance for build assignment with `-t`, `--tol`. This is useful if you know that one chromosome will never match.
 
 ```{sh}
 wgba -t 2 one_bad_chromosome.bed
@@ -46,3 +53,8 @@ Add a genome build to the database
 ```{sh}
 wgba -f add_build your_build.chrom.sizes
 ```
+
+## Issues
+
+This was written in about an hour for my own use. If you find something not working, please [raise an issue](https://github.com/Chris1221/wgba/issues/new/choose).
+
