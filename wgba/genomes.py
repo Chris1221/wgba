@@ -23,6 +23,9 @@ class Genome:
     def chroms(self):
         return [k for k in self.sizes.keys()]
 
+    def size_of(self, chrom):
+        return self.sizes[chrom]
+
     def genome_path(self, name):
         return pkg_resources.resource_filename('wgba.sizes', f'{name}.chrom.sizes')
         # Try except here for names not found
