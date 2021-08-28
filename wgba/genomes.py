@@ -1,4 +1,5 @@
 import pkg_resources
+from shutil import copy
 
 hg19 = pkg_resources.resource_filename('wgba.sizes', 'hg19.chrom.sizes')
 grch38 = pkg_resources.resource_filename('wgba.sizes', 'grch38.chrom.sizes')
@@ -38,3 +39,13 @@ def build_genomes():
         genomes.append(Genome(g))
     
     return genomes
+
+def add_build(path):
+    assert ".chrom.sizes" in path, "Your file name must begin with the build ID and end with .chrom.sizes"
+
+    files = [i.replace(".chrom.sizes", "") for i in pkg_resources.resource_listdir('wgba.sizes', '.') if i not in ['__init__.py', '__pycache__']]
+    folder = "/".join(pkg_resources.resource_filename( 'wgba.sizes', files[0]).split("/")[:-1]) + "/"
+
+    copy(path, folder + path)
+
+    print(f"WGBA: Successfully added '{path.split('/')[-1].replace('.chrom.sizes', '')}' to the list of known genomes.")

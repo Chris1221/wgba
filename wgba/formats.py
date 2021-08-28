@@ -3,7 +3,7 @@ import pyBigWig
 
 from .genomes import build_genomes
 
-def check_bigwig(path, summary = False, tol = 2):
+def check_bigwig(path: str, summary: bool = False, tol: int = 2, **other) -> list:
     bw = pyBigWig.open(path)
 
     consistent = {}
@@ -19,9 +19,10 @@ def check_bigwig(path, summary = False, tol = 2):
             else:
                 consistent[g.build][chrom] = True
     
-    report(path, consistent, summary = summary, tol = tol)
+    genomes = report(path, consistent, summary = summary, tol = tol)
+    return genomes
 
-def check_bed(path, summary = False, tol = 2):
+def check_bed(path: str, summary: bool = False, tol: int = 2, **other) -> list:
     consistent = {}
     genomes = build_genomes()
     for g in genomes:
@@ -37,12 +38,13 @@ def check_bed(path, summary = False, tol = 2):
                     if int(end) > g.size_of(chr):
                         consistent[g.build][chr] = False
 
-    report(path, consistent, summary = summary, tol = tol)
+    genomes = report(path, consistent, summary = summary, tol = tol)
+    return genomes
 
 
 
-def report(path: str, consistent: dict, summary: bool = False, tol: int = 2):
-    genome = "Unknown"
+def report(path: str, consistent: dict, summary: bool = False, tol: int = 2) -> list:
+    genomes = []
     for g in consistent.keys():
         if summary: print(f"Not consistent with {g}:")
         n_not = 0
@@ -52,12 +54,11 @@ def report(path: str, consistent: dict, summary: bool = False, tol: int = 2):
                 if summary: print(f"\t{chrom}") 
 
         if n_not < tol:
-            if genome is "Unknown":
-                genome = g
-            else:
-                genome += f" or {g}"
+            genomes.append(g)
             
-    if genome is not "Unknown":
-        print(f"{path} is probably built on {genome}.") 
+    if len(genomes) > 0:
+        print(f"{path} is probably built on {', '.join(genomes)}.") 
     else:
         print(f"{path} doesn't match any genomes that I know about.")
+
+    return genomes

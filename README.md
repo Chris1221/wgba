@@ -2,11 +2,47 @@
 
 A species-agnostic tool to figure out the probable genome build of a file. To add a new genome build, copy the `${BUILD}.chrom.sizes` file into `wgba/sizes/` and it will be automatically detected.
 
-Usage:
+## Usage:
+
+Auto detect file extension
 
 ```{sh}
-wgca -f bed your_file.bed
-wgca -f bigwig your_file.bigWig
-wgca -f bed bed1.bed bed2.bed bed3.bed
-wgca -f bed *.bed
+wgba your_file.bed
+```
+
+Use a specific file extension, if your extension is non-standard for example
+
+```{sh}
+wgba -f bed your_file.bed
+wgba -f bigwig your_file.bigWig
+```
+
+You can use shell globs to match multiple files, all of which will be processed independantly
+
+```{sh}
+wgba *.bed 
+```
+
+You can mix and match supported files
+
+```{sh}
+wgba a_bed_file.bed and_a_bigwig.bw and_another.bigWig
+```
+
+Summarise non-conforming chromosomes with `-s`, `--summary`
+
+```{sh}
+wgba -s bad_file.bed
+```
+
+Adjust the tolerance for build assignemnt with `-t`, `--tol`. This is useful if you know that one chromosome will never match.
+
+```{sh}
+wgba -t 2 one_bad_chromosome.bed
+```
+
+Add a genome build to the database
+
+```{sh}
+wgba -f add_build your_build.chrom.sizes
 ```
