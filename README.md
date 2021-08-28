@@ -36,6 +36,12 @@ You can mix and match supported files
 wgba a_bed_file.bed and_a_bigwig.bw and_another.bigWig
 ```
 
+Check if all of your files are on the same build with `-c`, `--check` 
+
+```{sh}
+wgba -c *.bed *.bw 
+```
+
 Summarise non-conforming chromosomes with `-s`, `--summary`
 
 ```{sh}
