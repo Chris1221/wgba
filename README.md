@@ -1,5 +1,7 @@
 # Which genome build again?
 
+[![CircleCI](https://circleci.com/gh/Chris1221/wgba/tree/main.svg?style=svg)](https://circleci.com/gh/Chris1221/wgba/tree/main)
+
 A species-agnostic tool to figure out the probable genome build of a file. Currently supports bigWig and bed files, and an easy method to add your own genome build.
 
 Install with `pip`
