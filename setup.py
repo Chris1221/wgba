@@ -18,7 +18,7 @@ setup(
    author='Chris Cole',
    author_email='ccole@well.ox.ac.uk',
    install_requires = ["pyBigWig", "pandas"],
-   packages=['wgba', 'wgba.static'],  
+   packages=['wgba', 'wgba.sizes'],  
    include_package_data = True,
    entry_points={
         'console_scripts': [
