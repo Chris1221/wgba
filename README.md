@@ -10,6 +10,9 @@ Install with `pip`
 pip install wgba
 ```
 
+https://user-images.githubusercontent.com/8516981/133273821-cac95fdf-cfa4-48de-8760-72b7f442cfe5.mp4
+
+
 ## Usage:
 
 Auto detect file extension
