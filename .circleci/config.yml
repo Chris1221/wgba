@@ -23,7 +23,7 @@ jobs:
           command: coverage run -m unittest
           name: Test 
       - run:
-          command: coverage xml -i lanceotron/*
+          command: coverage xml -i wgba/*
           name: Create coverage report
       - codecov/upload:
           file: coverage.xml
