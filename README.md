@@ -7,8 +7,7 @@ A species-agnostic tool to figure out the probable genome build of a file. Curre
 Install with `pip`
 
 ```{sh}
-git clone git@github.com:Chris1221/wgba.git
-pip install -e wgba
+pip install wgba
 ```
 
 ## Usage:
