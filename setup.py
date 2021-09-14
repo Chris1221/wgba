@@ -7,6 +7,7 @@ setup(
    description='Which genome build again?',
    author='Chris Cole',
    author_email='ccole@well.ox.ac.uk',
+   install_requires = ["pyBigWig"],
    packages=['wgba'],  #same as name
       entry_points={
         'console_scripts': [
