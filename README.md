@@ -1,6 +1,6 @@
 # Which genome build again?
 
-[![PyPI version](https://badge.fury.io/py/wgba.svg)](https://badge.fury.io/py/wgba) [![CircleCI](https://circleci.com/gh/Chris1221/wgba/tree/main.svg?style=svg)](https://circleci.com/gh/Chris1221/wgba/tree/main) [![codecov](https://codecov.io/gh/Chris1221/wgba/branch/main/graph/badge.svg?token=fp2S6CX5fq)](https://codecov.io/gh/Chris1221/wgba)
+[![PyPI version](https://badge.fury.io/py/wgba.svg)](https://badge.fury.io/py/wgba) [![Downloads](https://pepy.tech/badge/wgba)](https://pepy.tech/project/wgba) [![CircleCI](https://circleci.com/gh/Chris1221/wgba/tree/main.svg?style=svg)](https://circleci.com/gh/Chris1221/wgba/tree/main) [![codecov](https://codecov.io/gh/Chris1221/wgba/branch/main/graph/badge.svg?token=fp2S6CX5fq)](https://codecov.io/gh/Chris1221/wgba)
 
 A species-agnostic tool to figure out the probable genome build of a file. Currently supports bigWig and bed files, and an easy method to add your own genome build.
 
